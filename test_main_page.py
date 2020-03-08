@@ -1,7 +1,8 @@
+#Stepik_auto_test_FINAL_PROJ
 #Stepik_auto_test_FINAL_PROJ/test_main_page.py
 #test_main_page.py
 
-# ФАЙЛ С ТЕСТАМИ
+# ФАЙЛ С ТЕСТАМИ главной страницы сайта
 
 #Запуск :
 #pytest -v --tb=line --language=en test_main_page.py
