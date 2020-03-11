@@ -13,11 +13,12 @@ class ProductPage(BasePage):
 
     def should_be_add_product_to_basket(self):
         # проверка: сообщение о том, что товар добавлен в корзину
-        assert "has been added to your basket" in self.browser.find_element(*ProductPageLocators.MESSAGE_PRODUCT_HAS_BEEN_ADDED_TO_BASKET).text, "Product has been added to your basket"
+        assert "has been added to your basket" in self.browser.find_element(*ProductPageLocators.MESSAGE_PRODUCT_HAS_BEEN_ADDED_TO_BASKET).text, "Message about added to basket is incorrect"
 
     def should_be_correct_name_add_product_to_backet(self, product_name):
         # проверка: название товара в сообщении, совпадает с тем товаром, который добавили
-        assert product_name in self.browser.find_element(*ProductPageLocators.MESSAGE_PRODUCT_HAS_BEEN_ADDED_TO_BASKET).text, "Product name added to cart is incorrect"
+        #assert product_name in self.browser.find_element(*ProductPageLocators.MESSAGE_PRODUCT_HAS_BEEN_ADDED_TO_BASKET).text, "Product name added to cart is incorrect"
+        assert product_name + " has been added to your basket." == self.browser.find_element(*ProductPageLocators.MESSAGE_PRODUCT_HAS_BEEN_ADDED_TO_BASKET).text, "Product name added to cart is incorrect"
 
     def should_be_correct_price_basket(self, product_price):
         # проверка: стоимость корзины совпадает с ценой товара
