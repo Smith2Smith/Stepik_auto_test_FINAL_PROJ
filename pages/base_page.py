@@ -21,11 +21,15 @@ class BasePage():
     def __init__(self, browser: RemoteWebDriver, url, timeout=10):
         self.browser = browser
         self.url = url
-        #self.browser.implicitly_wait(timeout)       # неявное ожидание со значением по умолчанию в 10
+        self.browser.implicitly_wait(timeout)       # неявное ожидание со значением по умолчанию в 10
 
     #метод open. Он должен открывать нужную страницу в браузере, используя метод get()
     def open(self):
         self.browser.get(self.url)
+
+    def go_to_basket(self):
+        link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+        link.click()
 
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
@@ -34,9 +38,8 @@ class BasePage():
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
-    #в этом методе будем перехватывать исключение
     def is_element_present(self, how, what):
-        # элемент есть на странице
+        # элемент есть на странице (в этом методе будем перехватывать исключение)
         try:
             self.browser.find_element(how, what)
         except (NoSuchElementException):
@@ -73,10 +76,5 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
-
-
-
-
-
 
 #
