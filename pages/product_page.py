@@ -34,4 +34,15 @@ class ProductPage(BasePage):
         product_price = self.browser.find_element(*ProductPageLocators.PRICE_IN_PRODUCT_CARD).text
         return product_price
 
+    def should_not_be_success_message(self):
+        # проверка: не должно быть успешного сообщения
+        # SUCCESS_MESSAGE заменен на MESSAGE_PRODUCT_HAS_BEEN_ADDED_TO_BASKET
+        assert self.is_not_element_present(*ProductPageLocators.MESSAGE_PRODUCT_HAS_BEEN_ADDED_TO_BASKET), \
+           "Success message is presented, but should not be"
+
+    def should_be_success_message_disappeared(self):
+        # проверка: успешное сообщение должно исчезнуть
+        assert self.is_disappeared(*ProductPageLocators.MESSAGE_PRODUCT_HAS_BEEN_ADDED_TO_BASKET), \
+            "Success message is not disappeared, but should not be"
+
 #
