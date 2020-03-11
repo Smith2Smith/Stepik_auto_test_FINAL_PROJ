@@ -11,6 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 import math
+from .locators import BasePageLocators
 
 # конструктор — метод, который вызывается, когда мы создаем объект.
 # Конструктор объявляется ключевым словом __init__.
@@ -25,6 +26,13 @@ class BasePage():
     #метод open. Он должен открывать нужную страницу в браузере, используя метод get()
     def open(self):
         self.browser.get(self.url)
+
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
+
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
     #в этом методе будем перехватывать исключение
     def is_element_present(self, how, what):
@@ -65,5 +73,10 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+
+
+
+
 
 #
