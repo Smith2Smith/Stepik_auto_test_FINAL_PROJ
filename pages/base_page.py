@@ -16,15 +16,15 @@ from .locators import BasePageLocators
 # конструктор — метод, который вызывается, когда мы создаем объект.
 # Конструктор объявляется ключевым словом __init__.
 # В него в качестве параметров мы передаем экземпляр драйвера и url адрес.
-# Внутри конструктора сохраняем эти данные как аттрибуты нашего класса
+# Внутри конструктора сохраняем эти данные как атрибуты нашего класса
 class BasePage():
     def __init__(self, browser: RemoteWebDriver, url, timeout=10):
         self.browser = browser
         self.url = url
         self.browser.implicitly_wait(timeout)       # неявное ожидание со значением по умолчанию в 10
 
-    #метод open. Он должен открывать нужную страницу в браузере, используя метод get()
     def open(self):
+        # метод open. Он должен открывать нужную страницу в браузере, используя метод get()
         self.browser.get(self.url)
 
     def go_to_basket(self):
@@ -34,6 +34,10 @@ class BasePage():
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                     " probably unauthorised user"
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
