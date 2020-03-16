@@ -16,6 +16,7 @@ class LoginPageLocators():
     REGISTRATION_FIELD_EMAIL = (By.CSS_SELECTOR, "#id_registration-email")
     REGISTRATION_FIELD_PASSWORD1 = (By.CSS_SELECTOR, "#id_registration-password1")
     REGISTRATION_FIELD_PASSWORD2 = (By.CSS_SELECTOR, "#id_registration-password2")
+    REGISTRATION_BUTTON_REGISTER = (By.CSS_SELECTOR, ".register_form .btn-primary")
 
 class ProductPageLocators():
     BUTTON_ADD_TO_BASKET = (By.CSS_SELECTOR, ".btn-add-to-basket")  # кнопка добавить в корзину в карточке продукта
@@ -26,8 +27,10 @@ class ProductPageLocators():
 
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGOUT_LINK = (By.CSS_SELECTOR, "#logout_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     BASKET_LINK = (By.CSS_SELECTOR, ".header .btn-group a.btn.btn-default")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 class BasketPageLocators():
     FIRST_PRODUCT_LINK = (By.CSS_SELECTOR, ".basket_summary .basket-items:nth-child(6) .col-sm-4 h3 a")
