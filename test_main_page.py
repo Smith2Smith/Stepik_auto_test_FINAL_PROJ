@@ -4,11 +4,6 @@
 
 # ФАЙЛ С ТЕСТАМИ главной страницы сайта
 
-#Запуск :
-#pytest -v --tb=line --language=en test_main_page.py
-
-#--tb=line указывает, что нужно выводить только одну строку из лога каждого упавшего теста
-
 from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
 from .pages.basket_page import BasketPage
