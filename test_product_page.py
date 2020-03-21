@@ -4,21 +4,11 @@
 
 # ФАЙЛ С ТЕСТАМИ страницы товара
 
-#Запуск :
-#pytest -v -s --tb=line --language=en test_product_page.py
-#pytest -m test1 -v -s --tb=line --language=en test_product_page.py
-#pytest -m add_to_basket -v -s --tb=line --language=en test_product_page.py
-
 from .pages.product_page import ProductPage
 from .pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
 import pytest
 import time
-
-#link ="http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
-#link ="http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
-#link = " http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
-#link ="http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
 
 @pytest.mark.add_to_basket
 @pytest.mark.need_review_custom_scenarios
