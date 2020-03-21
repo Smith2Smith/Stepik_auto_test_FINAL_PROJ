@@ -21,6 +21,7 @@ import time
 #link ="http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
 
 @pytest.mark.add_to_basket
+@pytest.mark.need_review_custom_scenarios
 class TestUserAddToBasketFromProductPage():
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
